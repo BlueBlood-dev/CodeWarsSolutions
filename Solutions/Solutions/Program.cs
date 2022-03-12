@@ -1,4 +1,6 @@
-﻿using System.Linq;
+﻿using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 //https://www.codewars.com/kata/5208f99aee097e6552000148/train/csharp
@@ -50,4 +52,46 @@ string[] inArray(string[] array1, string[] array2)
     return array1.Distinct().Where(s1 => array2.Any(s2 => s2.Contains(s1))).OrderBy(s => s).ToArray();
 }
 
+//https://www.codewars.com/kata/585d7d5adb20cf33cb000235/train/csharp
+int GetUnique(IEnumerable<int> numbers)
+{
+    int[] array = numbers.ToArray();
+    Array.Sort(array);
+    return array[0] == array[1] ? array[array.Length - 1] : array[0];
+}
 
+
+//https://www.codewars.com/kata/51b6249c4612257ac0000005/train/csharp
+Dictionary<char, int> dictionary = new Dictionary<char, int>()
+{
+        { 'I',1 },
+        {'V',5 },
+        {'X',10 },
+        {'L',50 },
+        {'C',100 },
+        {'D',500 },
+        {'M',1000 }
+};
+
+int Solution(string roman)
+{
+
+    int result = 0;
+    int max = 0;
+
+    foreach (var c in roman.Reverse())
+    {
+        int value = dictionary[c];
+
+        if (value < max)
+        {
+            result -= value;
+        }
+        else
+        {
+            result += value;
+            max = value;
+        }
+    }
+    return result;  
+}

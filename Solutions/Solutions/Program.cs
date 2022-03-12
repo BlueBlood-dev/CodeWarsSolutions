@@ -11,9 +11,10 @@ string BreakCamelCase(string str)
     {
         builder.Append(str[i]);
         if (i != str.Length - 1)
-            if (char.IsUpper(str[i+1]))
-                builder.Append(' ');  
+            if (char.IsUpper(str[i + 1]))
+                builder.Append(' ');
     }
+
     return builder.ToString();
 }
 
@@ -64,18 +65,17 @@ int GetUnique(IEnumerable<int> numbers)
 //https://www.codewars.com/kata/51b6249c4612257ac0000005/train/csharp
 Dictionary<char, int> dictionary = new Dictionary<char, int>()
 {
-        { 'I',1 },
-        {'V',5 },
-        {'X',10 },
-        {'L',50 },
-        {'C',100 },
-        {'D',500 },
-        {'M',1000 }
+    {'I', 1},
+    {'V', 5},
+    {'X', 10},
+    {'L', 50},
+    {'C', 100},
+    {'D', 500},
+    {'M', 1000}
 };
 
 int Solution(string roman)
 {
-
     int result = 0;
     int max = 0;
 
@@ -93,5 +93,6 @@ int Solution(string roman)
             max = value;
         }
     }
-    return result;  
+
+    return result;
 }

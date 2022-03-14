@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System;
 
 //https://www.codewars.com/kata/5208f99aee097e6552000148/train/csharp
 string BreakCamelCase(string str)
@@ -96,3 +97,21 @@ int Solution(string roman)
 
     return result;
 }
+
+
+string Rot13(string message)
+{
+    StringBuilder result = new StringBuilder(message.Length);
+    foreach (var s in message)
+    {
+        if ((s >= 'a' && s <= 'm') || (s >= 'A' && s <= 'M'))
+            result.Append(Convert.ToChar((s + 13)).ToString());
+        else if ((s >= 'n' && s <= 'z') || (s >= 'N' && s <= 'Z'))
+            result.Append(Convert.ToChar((s - 13)).ToString());
+        else
+            result.Append(s);
+    }
+    return result.ToString();
+}
+
+Console.WriteLine(Rot13("i am so tired"));

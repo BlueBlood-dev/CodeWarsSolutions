@@ -98,7 +98,7 @@ int Solution(string roman)
     return result;
 }
 
-
+// i've forgotten the link but that is just the rot13 cypher
 string Rot13(string message)
 {
     StringBuilder result = new StringBuilder(message.Length);
@@ -115,3 +115,29 @@ string Rot13(string message)
 }
 
 Console.WriteLine(Rot13("i am so tired"));
+
+//https://www.codewars.com/kata/5264d2b162488dc400000001/train/csharp
+
+
+string Reverse(string s)
+{
+    char[] charArray = s.ToCharArray();
+    Array.Reverse(charArray);
+    return new string(charArray);
+}
+
+
+string SpinWords(string sentence)
+{
+    var builder = new StringBuilder();
+    string[] splitedSentence = sentence.Split(" ");
+    
+    for (int i = 0; i < splitedSentence.Length; i++)
+        if (splitedSentence[i].Length > 5 && splitedSentence[i] != " ")
+            builder.Append(Reverse(splitedSentence[i]) + " ");
+        else
+            builder.Append(splitedSentence[i] + " ");
+            return builder.ToString().Trim();
+}
+
+Console.WriteLine(SpinWords("Hey wollef sroirraw"));

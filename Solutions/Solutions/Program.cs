@@ -111,6 +111,7 @@ string Rot13(string message)
         else
             result.Append(s);
     }
+
     return result.ToString();
 }
 
@@ -131,13 +132,26 @@ string SpinWords(string sentence)
 {
     var builder = new StringBuilder();
     string[] splitedSentence = sentence.Split(" ");
-    
+
     for (int i = 0; i < splitedSentence.Length; i++)
-        if (splitedSentence[i].Length > 5 && splitedSentence[i] != " ")
+        if (splitedSentence[i].Length >= 5 && splitedSentence[i] != " ")
             builder.Append(Reverse(splitedSentence[i]) + " ");
         else
             builder.Append(splitedSentence[i] + " ");
-            return builder.ToString().Trim();
+    return builder.ToString().Trim();
 }
 
 Console.WriteLine(SpinWords("Hey wollef sroirraw"));
+
+
+//https://www.codewars.com/kata/52bc74d4ac05d0945d00054e/train/csharp
+string FirstNonRepeatingLetter(string s)
+{
+    return s.GroupBy(x => x).First(g => g.Count() == 1).Key.ToString();
+}
+
+
+string test = "0134555555";
+var  newTest = test.MaxBy(g => Convert.ToInt64(g) % 2 == 0);
+
+Console.WriteLine(newTest);

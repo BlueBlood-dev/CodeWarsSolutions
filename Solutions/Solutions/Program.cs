@@ -151,7 +151,3 @@ string FirstNonRepeatingLetter(string s)
 }
 
 
-string test = "0134555555";
-var  newTest = test.MaxBy(g => Convert.ToInt64(g) % 2 == 0);
-
-Console.WriteLine(newTest);
